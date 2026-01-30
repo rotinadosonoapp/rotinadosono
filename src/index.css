@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    /* Warm, nurturing palette for sleep/baby theme */
+    --background: 40 33% 98%;
+    --foreground: 220 25% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 20%;
+
+    /* Soft coral - warm and inviting */
+    --primary: 20 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Muted cream */
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 220 25% 25%;
+
+    /* Soft sage for accents */
+    --muted: 40 20% 92%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Warm gold accent */
+    --accent: 38 85% 55%;
+    --accent-foreground: 220 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 25% 88%;
+    --input: 40 25% 88%;
+    --ring: 20 80% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --coral: 20 80% 65%;
+    --coral-light: 20 75% 92%;
+    --coral-dark: 20 70% 50%;
+    --navy: 220 35% 25%;
+    --navy-light: 220 25% 40%;
+    --cream: 40 33% 98%;
+    --cream-dark: 40 25% 92%;
+    --gold: 38 85% 55%;
+    --gold-light: 38 80% 75%;
+    --sage: 150 20% 75%;
+    --sage-dark: 150 25% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(40 33% 98%) 0%, hsl(20 75% 96%) 50%, hsl(40 30% 94%) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(20 80% 65%) 0%, hsl(15 75% 58%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 30% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(40 25% 97%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 25% 20% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(220 25% 20% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(220 25% 20% / 0.16);
+    --shadow-coral: 0 8px 32px -8px hsl(20 80% 65% / 0.35);
+    --shadow-gold: 0 4px 16px -4px hsl(38 85% 55% / 0.4);
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 12%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 25% 16%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 25% 16%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 20 75% 60%;
+    --primary-foreground: 220 25% 12%;
+
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 220 20% 22%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 38 80% 50%;
+    --accent-foreground: 220 25% 12%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 20 75% 60%;
+
+    --coral: 20 75% 60%;
+    --coral-light: 20 60% 25%;
+    --coral-dark: 20 80% 70%;
+    --navy: 220 25% 85%;
+    --navy-light: 220 20% 70%;
+    --cream: 220 25% 12%;
+    --cream-dark: 220 20% 18%;
+    --gold: 38 80% 50%;
+    --gold-light: 38 70% 35%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 12%) 0%, hsl(220 20% 16%) 50%, hsl(220 25% 14%) 100%);
+    --gradient-coral: linear-gradient(135deg, hsl(20 75% 60%) 0%, hsl(15 70% 52%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(220 25% 12%) 0%, hsl(220 20% 16%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 16%) 0%, hsl(220 20% 14%) 100%);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-coral {
+    background: var(--gradient-coral);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-coral {
+    box-shadow: var(--shadow-coral);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
