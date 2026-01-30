@@ -1,9 +1,12 @@
-import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, isAdmin } = useAuth();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -54,8 +57,14 @@ const Header = () => {
             </button>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Portal + CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link to={isAuthenticated ? (isAdmin ? "/admin" : "/dashboard") : "/login"}>
+              <Button variant="outline" size="default" className="gap-2">
+                <User className="w-4 h-4" />
+                {isAuthenticated ? (isAdmin ? "Admin" : "Minha Área") : "Entrar no Portal"}
+              </Button>
+            </Link>
             <Button
               variant="hero"
               size="default"
@@ -106,10 +115,16 @@ const Header = () => {
               >
                 FAQ
               </button>
+              <Link to={isAuthenticated ? (isAdmin ? "/admin" : "/dashboard") : "/login"} onClick={() => setIsMenuOpen(false)}>
+                <Button variant="outline" size="lg" className="w-full mt-2 gap-2">
+                  <User className="w-4 h-4" />
+                  {isAuthenticated ? (isAdmin ? "Admin" : "Minha Área") : "Entrar no Portal"}
+                </Button>
+              </Link>
               <Button
                 variant="hero"
                 size="lg"
-                className="mt-2"
+                className="mt-2 w-full"
                 onClick={() => scrollToSection("comprar")}
               >
                 Quero Começar
