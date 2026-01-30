@@ -9,9 +9,9 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "vercel --prod --yes",
-    "deploy:preview": "vercel --yes",
-    "deploy:login": "vercel login"
+    "deploy": "npx vercel --prod --yes",
+    "deploy:preview": "npx vercel --yes",
+    "deploy:login": "npx vercel login"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
