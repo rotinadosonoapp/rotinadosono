@@ -63,16 +63,23 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Imagem de destaque */}
-        <div className="flex justify-center mb-12">
-          <div className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-xl border-2 border-coral/20">
+        {/* Galeria de imagens */}
+        <div className="flex gap-4 justify-center mb-12 px-2">
+          <div className="flex-shrink-0 w-52 md:w-64 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
             <img
-              src={landingImages.babySleepingCrib}
-              alt="Famílias que conquistaram noites tranquilas"
-              className="w-full h-64 object-cover"
+              src={landingImages.babySleepingClose}
+              alt="Bebê dormindo no berço - famílias transformadas"
+              className="w-full h-44 md:h-52 object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+          </div>
+          <div className="flex-shrink-0 w-52 md:w-64 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden sm:block">
+            <img
+              src={landingImages.babySleepingPeaceful}
+              alt="Bebê dormindo entre nuvens e estrelas"
+              className="w-full h-44 md:h-52 object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 

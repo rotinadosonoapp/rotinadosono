@@ -83,28 +83,28 @@ const BenefitsSection = () => {
         </div>
 
         {/* Galeria de imagens */}
-        <div className="flex gap-4 justify-center mb-16 overflow-x-auto pb-4 px-2">
-          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
+        <div className="flex gap-4 justify-center mb-16 px-2">
+          <div className="flex-shrink-0 w-52 md:w-64 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
             <img
               src={landingImages.babySleepingCrib}
               alt="Bebê dormindo tranquilamente no berço"
-              className="w-full h-40 md:h-48 object-cover"
+              className="w-full h-44 md:h-52 object-cover"
               loading="lazy"
             />
           </div>
-          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden sm:block">
+          <div className="flex-shrink-0 w-52 md:w-64 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden sm:block">
+            <img
+              src={landingImages.babySleepingClose}
+              alt="Bebê dormindo no berço de balanço"
+              className="w-full h-44 md:h-52 object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-shrink-0 w-52 md:w-64 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden md:block">
             <img
               src={landingImages.babySleepingPeaceful}
-              alt="Bebê em sono tranquilo"
-              className="w-full h-40 md:h-48 object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden md:block">
-            <img
-              src={landingImages.babySleepingBlanket}
-              alt="Bebê dormindo aconchegado"
-              className="w-full h-40 md:h-48 object-cover"
+              alt="Bebê dormindo aconchegado entre nuvens"
+              className="w-full h-44 md:h-52 object-cover"
               loading="lazy"
             />
           </div>

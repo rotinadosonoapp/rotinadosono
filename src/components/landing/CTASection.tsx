@@ -20,15 +20,24 @@ const CTASection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative w-32 h-32 rounded-2xl overflow-hidden border-2 border-primary-foreground/30 shadow-xl">
+          <div className="flex justify-center gap-4 mb-8">
+            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-primary-foreground/30 shadow-xl">
               <img
-                src={landingImages.babySleepingCrib}
-                alt="Sua família merece noites tranquilas"
+                src={landingImages.babySleepingClose}
+                alt="Bebê dormindo no berço de balanço"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-coral/20" />
+              <div className="absolute inset-0 bg-coral/10" />
+            </div>
+            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-primary-foreground/30 shadow-xl hidden sm:block">
+              <img
+                src={landingImages.babySleepingPeaceful}
+                alt="Bebê dormindo entre nuvens"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-coral/10" />
             </div>
           </div>
 

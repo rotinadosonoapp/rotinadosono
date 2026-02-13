@@ -1,16 +1,21 @@
 /**
- * Imagens de bebês/crianças dormindo - royalty-free (Unsplash)
- * Tons quentes e aconchegantes que combinam com o site
+ * Imagens da landing - identidade Rotina do Sono
+ * 3 ilustrações locais com tons quentes (coral, dourado, creme)
+ * distribuídas para dar variedade ao site.
  */
+import heroBabySleeping from "@/assets/hero-baby-sleeping.jpg";
+import babyCradle from "@/assets/baby-cradle.png";
+import babyCrib from "@/assets/baby-crib.png";
+
 export const landingImages = {
-  babySleepingCrib:
-    "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800&q=85",
-  babySleepingClose:
-    "https://images.unsplash.com/photo-1544776193-352d25d82d23?w=800&q=85",
-  babySleepingPeaceful:
-    "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=85",
-  babySleepingBlanket:
-    "https://images.unsplash.com/photo-1587616211892-fd2e7b4b2d55?w=800&q=85",
-  babySleepingSoft:
-    "https://images.unsplash.com/photo-1587616211892-fd2e7b4b2d55?w=800&q=85",
+  /** Hero + Galeria Benefits (imagem 1) - berço madeira com estrelas */
+  babySleepingCrib: heroBabySleeping,
+  /** About - bebê no berço de balanço com lua e estrelas */
+  babySleepingClose: babyCradle,
+  /** Content - bebê dormindo no berço com nuvens */
+  babySleepingPeaceful: babyCrib,
+  /** Pricing - berço de balanço cena noturna */
+  babySleepingBlanket: babyCradle,
+  /** Problem - bebê no berço com nuvens */
+  babySleepingSoft: babyCrib,
 };
