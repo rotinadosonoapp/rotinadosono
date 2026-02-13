@@ -1,5 +1,6 @@
-import { ArrowRight, Moon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { landingImages } from "@/lib/images";
 
 const CTASection = () => {
   const scrollToSection = (id: string) => {
@@ -19,8 +20,16 @@ const CTASection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="w-16 h-16 mx-auto mb-6 bg-primary-foreground/20 rounded-full flex items-center justify-center">
-            <Moon className="w-8 h-8 text-primary-foreground" />
+          <div className="flex justify-center mb-6">
+            <div className="relative w-32 h-32 rounded-2xl overflow-hidden border-2 border-primary-foreground/30 shadow-xl">
+              <img
+                src={landingImages.babySleepingCrib}
+                alt="Sua família merece noites tranquilas"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-coral/20" />
+            </div>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary-foreground mb-6">
@@ -45,7 +54,7 @@ const CTASection = () => {
           </div>
 
           <p className="mt-6 text-sm text-primary-foreground/70">
-            Garantia de 7 dias · Pagamento seguro · Acesso imediato
+            Pagamento seguro · Acesso imediato
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Moon, Sun, Heart, Sparkles, Clock, Shield } from "lucide-react";
+import { landingImages } from "@/lib/images";
 
 const benefits = [
   {
@@ -19,7 +20,7 @@ const benefits = [
     icon: Heart,
     title: "Método gentil",
     description:
-      "Sem deixar chorar. Respeitamos o vínculo e a segurança emocional do bebê.",
+      "Respeitamos o vínculo e a segurança emocional do bebê.",
     color: "sage",
   },
   {
@@ -79,6 +80,34 @@ const BenefitsSection = () => {
             Mais do que técnicas, você terá um novo olhar sobre o sono infantil
             e ferramentas práticas para transformar suas noites.
           </p>
+        </div>
+
+        {/* Galeria de imagens */}
+        <div className="flex gap-4 justify-center mb-16 overflow-x-auto pb-4 px-2">
+          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
+            <img
+              src={landingImages.babySleepingCrib}
+              alt="Bebê dormindo tranquilamente no berço"
+              className="w-full h-40 md:h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden sm:block">
+            <img
+              src={landingImages.babySleepingPeaceful}
+              alt="Bebê em sono tranquilo"
+              className="w-full h-40 md:h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-shrink-0 w-48 md:w-56 rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10 hidden md:block">
+            <img
+              src={landingImages.babySleepingBlanket}
+              alt="Bebê dormindo aconchegado"
+              className="w-full h-40 md:h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">

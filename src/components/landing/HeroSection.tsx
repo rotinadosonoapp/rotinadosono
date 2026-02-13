@@ -40,16 +40,15 @@ const HeroSection = () => {
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
               Um método gentil e eficaz para reeducar o sono do seu bebê, 
-              sem deixar chorar e respeitando o desenvolvimento dele. 
+              respeitando o desenvolvimento dele. 
               <strong className="text-foreground"> Noites tranquilas para toda a família.</strong>
             </p>
 
             {/* Quick Benefits */}
             <div className="space-y-3">
               {[
-                "Sem métodos de deixar chorar",
                 "Resultados em até 14 dias",
-                "Funciona de 0 a 5 anos",
+                "Funciona de 0 a 3 anos",
               ].map((benefit, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-sage-dark flex-shrink-0" />
@@ -131,7 +130,7 @@ const HeroSection = () => {
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Noite completa</p>
-                      <p className="font-semibold text-foreground">12 horas</p>
+                      <p className="font-semibold text-foreground">10 a 12 horas</p>
                     </div>
                   </div>
                 </div>

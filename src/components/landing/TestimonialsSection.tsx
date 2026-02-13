@@ -1,4 +1,5 @@
 import { Star, Quote } from "lucide-react";
+import { landingImages } from "@/lib/images";
 
 const testimonials = [
   {
@@ -60,6 +61,19 @@ const TestimonialsSection = () => {
           <p className="text-lg text-muted-foreground">
             Veja o que outras mães estão dizendo sobre o Rotina do Sono
           </p>
+        </div>
+
+        {/* Imagem de destaque */}
+        <div className="flex justify-center mb-12">
+          <div className="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-xl border-2 border-coral/20">
+            <img
+              src={landingImages.babySleepingCrib}
+              alt="Famílias que conquistaram noites tranquilas"
+              className="w-full h-64 object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">

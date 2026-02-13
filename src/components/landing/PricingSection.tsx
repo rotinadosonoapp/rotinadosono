@@ -1,18 +1,18 @@
-import { Check, Star, ArrowRight, Shield, CreditCard, QrCode } from "lucide-react";
+import { Check, Star, ArrowRight, CreditCard, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { landingImages } from "@/lib/images";
 
 const plans = [
   {
     name: "Essencial",
     description: "Tudo que você precisa para começar",
-    price: "97",
-    originalPrice: "197",
+    price: "200",
+    originalPrice: "247",
+    maxInstallments: 4,
     features: [
       "Guia Completo em PDF",
-      "Apresentação Visual (PPTX)",
       "Acesso vitalício",
-      "Atualizações gratuitas",
-      "Suporte por e-mail",
+      "1 primeiro contato",
     ],
     cta: "Quero Começar",
     popular: false,
@@ -20,15 +20,16 @@ const plans = [
   {
     name: "Completo",
     description: "Inclui acompanhamento personalizado",
-    price: "297",
+    price: "400",
     originalPrice: "497",
+    maxInstallments: 6,
     features: [
       "Tudo do plano Essencial",
+      "Apresentação visual (Power Point)",
       "Assessoria individual por 30 dias",
       "Análise personalizada do caso",
       "Plano de ação sob medida",
       "Suporte via WhatsApp",
-      "Sessão de ajustes inclusa",
     ],
     cta: "Quero Acompanhamento",
     popular: true,
@@ -48,8 +49,20 @@ const PricingSection = () => {
             <span className="text-coral">sua família</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Garantia incondicional de 7 dias. Se não funcionar para você, devolvemos seu dinheiro.
+            Pagamento seguro. Acesso imediato.
           </p>
+        </div>
+
+        {/* Imagem ilustrativa */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
+            <img
+              src={landingImages.babySleepingBlanket}
+              alt="Invista no descanso da sua família"
+              className="w-full h-44 object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -94,7 +107,7 @@ const PricingSection = () => {
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  ou 12x de R$ {(parseInt(plan.price) / 12).toFixed(2)}
+                  ou em até {plan.maxInstallments}x de R$ {(parseInt(plan.price) / plan.maxInstallments).toFixed(2)}
                 </p>
               </div>
 
@@ -121,35 +134,20 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Payment Methods & Guarantee */}
+        {/* Payment Methods */}
         <div className="mt-16 max-w-2xl mx-auto">
           <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Payment Methods */}
-              <div className="text-center md:text-left">
-                <h4 className="font-semibold text-foreground mb-4 flex items-center justify-center md:justify-start gap-2">
-                  <CreditCard className="w-5 h-5 text-coral" />
-                  Formas de Pagamento
-                </h4>
-                <div className="flex items-center justify-center md:justify-start gap-4">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <QrCode className="w-4 h-4" />
-                    Pix
-                  </div>
-                  <div className="text-sm text-muted-foreground">Cartão</div>
-                  <div className="text-sm text-muted-foreground">Boleto</div>
+            <div className="text-center">
+              <h4 className="font-semibold text-foreground mb-4 flex items-center justify-center gap-2">
+                <CreditCard className="w-5 h-5 text-coral" />
+                Formas de Pagamento
+              </h4>
+              <div className="flex items-center justify-center gap-6">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <QrCode className="w-4 h-4" />
+                  Pix
                 </div>
-              </div>
-
-              {/* Guarantee */}
-              <div className="text-center md:text-left">
-                <h4 className="font-semibold text-foreground mb-4 flex items-center justify-center md:justify-start gap-2">
-                  <Shield className="w-5 h-5 text-sage-dark" />
-                  Garantia de 7 dias
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Se não ficar satisfeita, devolvemos 100% do seu dinheiro. Sem perguntas.
-                </p>
+                <div className="text-sm text-muted-foreground">Cartão</div>
               </div>
             </div>
           </div>

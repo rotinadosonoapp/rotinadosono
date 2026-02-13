@@ -1,4 +1,5 @@
-import { Heart, Award, Users, BookOpen } from "lucide-react";
+import { Award, Users, BookOpen } from "lucide-react";
+import { landingImages } from "@/lib/images";
 
 const stats = [
   { icon: Users, value: "500+", label: "Famílias atendidas" },
@@ -14,15 +15,13 @@ const AboutSection = () => {
           {/* Image/Visual */}
           <div className="relative">
             <div className="relative bg-coral-light rounded-3xl p-8 md:p-12">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-cream to-coral-light overflow-hidden flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <div className="w-32 h-32 mx-auto bg-coral/20 rounded-full flex items-center justify-center">
-                    <Heart className="w-16 h-16 text-coral" />
-                  </div>
-                  <p className="font-display text-xl font-semibold text-foreground">
-                    Com amor e dedicação
-                  </p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src={landingImages.babySleepingClose}
+                  alt="Bebê dormindo - método gentil que respeita o sono do seu filho"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               {/* Decorative card */}
@@ -57,10 +56,9 @@ const AboutSection = () => {
                 o sono infantil.
               </p>
               <p>
-                Após anos de estudo e prática, desenvolvi o <strong className="text-foreground">Método Rotina do Sono</strong>, 
-                que já ajudou centenas de famílias a reconquistar noites tranquilas 
-                — sem deixar o bebê chorar, sem traumas, respeitando cada fase 
-                do desenvolvimento.
+                Após anos de estudo e prática, desenvolvi o <strong className="text-foreground">Guia Completo de Rotina do Sono do Bebê</strong>, 
+                ajudando muitas famílias a reconquistarem noites tranquilas sem traumas, 
+                respeitando cada fase do desenvolvimento e segurança do bebê.
               </p>
               <p>
                 Minha missão é levar esse conhecimento a mais famílias, 

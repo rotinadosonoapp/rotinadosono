@@ -39,12 +39,7 @@ const faqs = [
   {
     question: "Posso parcelar o pagamento?",
     answer:
-      "Sim! Você pode pagar em até 12x no cartão de crédito. Também aceitamos Pix (com desconto) e boleto bancário.",
-  },
-  {
-    question: "E se não funcionar para mim?",
-    answer:
-      "Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeita, devolvemos 100% do seu investimento, sem perguntas ou burocracia.",
+      "Sim! Você pode pagar em até 12x no cartão de crédito. Também aceitamos Pix (com desconto).",
   },
 ];
 

@@ -1,5 +1,6 @@
 import { FileText, Presentation, MessageCircle, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { landingImages } from "@/lib/images";
 
 const contentItems = [
   {
@@ -11,7 +12,7 @@ const contentItems = [
       "Entendendo o sono do bebê",
       "Rituais de sono eficazes",
       "Como lidar com regressões",
-      "Adaptações por idade (0-5 anos)",
+      "Adaptações por idade (0 a 3 anos)",
     ],
   },
   {
@@ -64,6 +65,18 @@ const ContentSection = () => {
             Material completo e prático para você aplicar hoje mesmo
             e começar a ver resultados nas próximas noites.
           </p>
+        </div>
+
+        {/* Imagem ilustrativa */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-xl rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
+            <img
+              src={landingImages.babySleepingPeaceful}
+              alt="Bebê dormindo - tudo que você precisa para transformar o sono"
+              className="w-full h-52 object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">

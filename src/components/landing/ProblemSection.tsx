@@ -1,4 +1,5 @@
 import { AlertCircle, Clock, Heart, Users } from "lucide-react";
+import { landingImages } from "@/lib/images";
 
 const problems = [
   {
@@ -66,6 +67,18 @@ const ProblemSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Imagem ilustrativa */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
+            <img
+              src={landingImages.babySleepingSoft}
+              alt="Bebê dormindo - existe uma saída gentil"
+              className="w-full h-56 object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="mt-16 text-center">
