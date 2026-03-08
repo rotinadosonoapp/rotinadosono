@@ -293,6 +293,35 @@ export const enrollments = {
     return { error };
   },
 
+  async grantCourse(userId: string, courseId: string, daysToAdd = 365) {
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + daysToAdd);
+    const { data, error } = await supabase
+      .from("enrollments")
+      .upsert(
+        {
+          user_id: userId,
+          course_id: courseId,
+          access_expires_at: expiresAt.toISOString(),
+          status: "active",
+        },
+        { onConflict: "user_id,course_id" }
+      )
+      .select()
+      .single();
+    return { data, error };
+  },
+
+  async revokeCourse(enrollmentId: string) {
+    const { data, error } = await supabase
+      .from("enrollments")
+      .update({ status: "revoked", updated_at: new Date().toISOString() })
+      .eq("id", enrollmentId)
+      .select()
+      .single();
+    return { data, error };
+  },
+
   async extendAccess(enrollmentId: string, days: number) {
     const { data: enrollment } = await supabase
       .from("enrollments")
@@ -418,6 +447,16 @@ export const payments = {
 // ============================================
 export const admin = {
   async getStats(): Promise<AdminStats> {
+    const { data: rpcData } = await supabase.rpc("admin_dashboard_metrics");
+    if (rpcData) {
+      return {
+        totalUsers: rpcData.total_users ?? rpcData.totalUsers ?? 0,
+        totalCourses: rpcData.total_courses ?? rpcData.totalCourses ?? 0,
+        totalEnrollments: rpcData.total_enrollments ?? rpcData.totalEnrollments ?? 0,
+        pendingPayments: rpcData.pending_payments ?? rpcData.pendingPayments ?? 0,
+        recentPayments: rpcData.recent_payments ?? rpcData.recentPayments ?? [],
+      };
+    }
     const [
       { count: totalUsers },
       { count: totalCourses },
@@ -446,6 +485,22 @@ export const admin = {
       pendingPayments: pendingPayments || 0,
       recentPayments: recentPayments || [],
     };
+  },
+
+  async createStudentViaApi(name: string, email: string, courseIds: string[]) {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.access_token) throw new Error("Não autenticado");
+    const res = await fetch(`${window.location.origin}/api/create-student`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.access_token}`,
+      },
+      body: JSON.stringify({ name, email, courseIds }),
+    });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error || "Erro ao cadastrar aluno");
+    return json;
   },
 
   async createUserWithProfile(email: string, password: string, name: string, role: "admin" | "aluno" = "aluno") {

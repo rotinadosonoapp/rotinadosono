@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/auth/Login";
 import Cadastro from "./pages/auth/Cadastro";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 // Pages - Admin
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -66,6 +67,7 @@ const App = () => (
                 }
               />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
 
               {/* Admin Routes (require admin role) */}
               <Route

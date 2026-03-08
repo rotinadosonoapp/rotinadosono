@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,11 +14,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const { signIn, isAdmin } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || "/dashboard";
+  const { signIn } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,10 +33,7 @@ export default function Login() {
       return;
     }
 
-    // Aguarda um pouco para o profile carregar
-    setTimeout(() => {
-      navigate(from, { replace: true });
-    }, 500);
+    // Redirecionamento é feito pelo PublicOnlyRoute após profile carregar (admin -> /admin, aluno -> /dashboard)
   };
 
   return (

@@ -20,13 +20,13 @@ interface AdminLayoutProps {
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/users", label: "Usuários", icon: Users },
+  { href: "/admin/users", label: "Alunos", icon: Users },
   { href: "/admin/courses", label: "Cursos", icon: BookOpen },
-  { href: "/admin/payments", label: "Pagamentos", icon: CreditCard },
+  { href: "/admin/payments", label: "Pedidos/Pagamentos", icon: CreditCard },
 ];
 
 export function AdminLayout({ children }: AdminLayoutProps) {
-  const { profile, signOut } = useAuth();
+  const { profile, displayName, signOut } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -49,7 +49,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         </Button>
         <div className="flex items-center gap-2 ml-4">
           <Moon className="w-5 h-5 text-coral" />
-          <span className="font-semibold">Admin</span>
+          <span className="font-semibold">Painel Administrativo</span>
         </div>
       </header>
 
@@ -65,7 +65,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           <div className="h-16 flex items-center px-6 border-b">
             <Link to="/admin" className="flex items-center gap-2">
               <Moon className="w-6 h-6 text-coral" />
-              <span className="font-display font-semibold text-lg">Admin</span>
+              <span className="font-display font-semibold text-lg">Painel Administrativo</span>
             </Link>
           </div>
 
@@ -99,11 +99,11 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-full bg-coral/10 flex items-center justify-center">
                 <span className="text-coral font-medium text-sm">
-                  {profile?.name?.charAt(0) || "A"}
+                  {displayName.charAt(0).toUpperCase()}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">{profile?.name || "Admin"}</p>
+                <p className="text-sm font-medium truncate">{displayName}</p>
                 <p className="text-xs text-muted-foreground truncate">{profile?.email}</p>
               </div>
             </div>

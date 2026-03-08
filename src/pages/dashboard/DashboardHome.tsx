@@ -13,7 +13,7 @@ import { format, differenceInDays, isPast } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export default function DashboardHome() {
-  const { profile } = useAuth();
+  const { profile, displayName } = useAuth();
   const [courses, setCourses] = useState<CourseWithProgress[]>([]);
   const [loading, setLoading] = useState(true);
   const [nearestExpiry, setNearestExpiry] = useState<Date | null>(null);
@@ -58,7 +58,7 @@ export default function DashboardHome() {
         {/* Welcome */}
         <div>
           <h1 className="text-2xl font-display font-bold">
-            Olá, {profile?.name?.split(" ")[0] || "Aluno"}! 👋
+            Olá, {displayName.split(" ")[0] || "Aluno"}! 👋
           </h1>
           <p className="text-muted-foreground">
             Continue de onde parou e aprenda no seu ritmo.

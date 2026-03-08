@@ -25,8 +25,12 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
   }
 
   if (requireAdmin && !isAdmin) {
-    // Usuário logado mas não é admin
     return <Navigate to="/dashboard" replace />;
+  }
+
+  // Admin tentando acessar área do aluno -> redireciona para admin
+  if (!requireAdmin && isAdmin) {
+    return <Navigate to="/admin" replace />;
   }
 
   return <>{children}</>;

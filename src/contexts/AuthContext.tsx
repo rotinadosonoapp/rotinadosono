@@ -10,8 +10,10 @@ interface AuthContextType {
   profile: Profile | null;
   loading: boolean;
   isAdmin: boolean;
+  isStudent: boolean;
   isAuthenticated: boolean;
   hasActiveAccess: boolean;
+  displayName: string;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, name?: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -32,17 +34,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    // Busca sessão inicial
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    let cancelled = false;
+
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (cancelled) return;
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        fetchProfile();
+        await fetchProfile();
       }
-      setLoading(false);
+      if (!cancelled) setLoading(false);
     });
 
-    // Escuta mudanças de auth
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -50,13 +53,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(session?.user ?? null);
 
       if (event === "SIGNED_IN" && session?.user) {
+        setLoading(true);
         await fetchProfile();
+        setLoading(false);
       } else if (event === "SIGNED_OUT") {
         setProfile(null);
       }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      cancelled = true;
+      subscription.unsubscribe();
+    };
   }, [fetchProfile]);
 
   const signIn = async (email: string, password: string) => {
@@ -88,10 +96,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const isAdmin = profile?.role === "admin";
+  const isStudent = profile?.role === "aluno";
   const isAuthenticated = !!user;
-  
-  // Verifica se tem acesso ativo (para alunos)
   const hasActiveAccess = isAdmin || (profile?.plan !== undefined);
+
+  // Nome para exibição: full_name ou name, nunca domínio do email
+  const displayName =
+    profile?.full_name || profile?.name || user?.email?.split("@")[0] || "Usuário";
 
   const value: AuthContextType = {
     user,
@@ -99,8 +110,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     profile,
     loading,
     isAdmin,
+    isStudent,
     isAuthenticated,
     hasActiveAccess,
+    displayName,
     signIn,
     signUp,
     signOut,

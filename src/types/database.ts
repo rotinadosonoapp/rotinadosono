@@ -10,6 +10,7 @@ export type PaymentProvider = "manual" | "stripe" | "mercadopago";
 export interface Profile {
   id: string;
   name: string | null;
+  full_name?: string | null; // compatível com schema que usa full_name
   email: string | null;
   role: UserRole;
   plan: UserPlan;

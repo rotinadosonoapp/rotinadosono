@@ -30,7 +30,7 @@ const navItems = [
 ];
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
-  const { profile, signOut } = useAuth();
+  const { profile, displayName, signOut } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -112,11 +112,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-full bg-coral/10 flex items-center justify-center">
                 <span className="text-coral font-medium text-sm">
-                  {profile?.name?.charAt(0) || "A"}
+                  {displayName.charAt(0).toUpperCase()}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">{profile?.name || "Aluno"}</p>
+                <p className="text-sm font-medium truncate">{displayName}</p>
                 <p className="text-xs text-muted-foreground truncate">{profile?.email}</p>
               </div>
             </div>

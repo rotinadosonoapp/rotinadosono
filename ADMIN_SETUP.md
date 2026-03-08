@@ -1,5 +1,9 @@
 # Área do Aluno + Painel Admin - Setup
 
+**Criar admin em 2 passos (mais fácil):** veja **[CRIAR_ADMIN_FACIL.md](./CRIAR_ADMIN_FACIL.md)** — sem terminal, só pelo Supabase.
+
+---
+
 ## Visão Geral
 
 Sistema implementado:
@@ -25,19 +29,34 @@ Isso cria todas as tabelas, funções e políticas de segurança.
 
 ### 1.2 Criar Administrador Geral
 
-**Admin padrão:** rotinadosono.app@gmail.com
+**Admin padrão:** rotinadosono.app@gmail.com | Senha: `Sonho@2025@mil`
 
-1. No **Supabase Dashboard** → **Authentication** → **Users** → **Add user**
+**Opção A – Script (recomendado)**
+
+1. No **Supabase Dashboard** → **Settings** → **API** → copie a chave **service_role** (secret).
+2. No `.env` na raiz do projeto, adicione:
+   ```env
+   VITE_SUPABASE_URL=https://eneylhffdcgkllhvziay.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=sua-service-role-key-aqui
+   ```
+3. No terminal, na pasta do projeto:
+   ```bash
+   npm run create-admin
+   ```
+   Ou: `node scripts/create-admin-user.mjs`
+
+Isso cria o usuário no Auth e já define o perfil como admin. Se o usuário já existir, apenas promove a admin (a senha não é alterada).
+
+**Opção B – Manual pelo Dashboard**
+
+1. **Supabase** → **Authentication** → **Users** → **Add user**
    - Email: `rotinadosono.app@gmail.com`
-   - Password: `Somo@2025@mil`
-   - Clique em **Create user**
-
-2. No **SQL Editor**, execute o conteúdo de `supabase/migrations/003_seed_admin.sql` (ou rode):
-
-```sql
-UPDATE public.profiles SET role = 'admin', plan = 'premium' WHERE email = 'rotinadosono.app@gmail.com';
-```
-
+   - Password: `Sonho@2025@mil`
+   - Marque **Auto Confirm User** → **Create user**
+2. No **SQL Editor**, execute:
+   ```sql
+   UPDATE public.profiles SET role = 'admin', plan = 'premium' WHERE email = 'rotinadosono.app@gmail.com';
+   ```
 3. Faça login no site em `/login` com esse e-mail e senha.
 
 **Para outro admin:** crie a conta pelo site (`/cadastro`) e depois execute no SQL Editor:

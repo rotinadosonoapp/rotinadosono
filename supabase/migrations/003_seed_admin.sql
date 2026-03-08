@@ -1,12 +1,10 @@
 -- ============================================
--- Criar administrador geral
+-- Criar administrador geral (veja CRIAR_ADMIN_FACIL.md)
 -- ============================================
--- PASSO 1: Crie o usuário no Supabase Dashboard:
---   Authentication > Users > Add user
+-- PASSO 1: Dashboard > Authentication > Users > Add user
 --   Email: rotinadosono.app@gmail.com
---   Password: Somo@2025@mil
---
--- PASSO 2: Execute este SQL (após o usuário existir)
+--   Password: Sonho@2025@mil  |  Marque "Auto Confirm User"
+-- PASSO 2: Execute o SQL abaixo (SQL Editor)
 -- ============================================
 
 UPDATE public.profiles
