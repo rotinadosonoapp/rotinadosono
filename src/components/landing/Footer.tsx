@@ -96,11 +96,11 @@ const Footer = () => {
             <ul className="space-y-3 text-primary-foreground/70">
               <li>
                 <a
-                  href="mailto:contato@rotinadosono.com.br"
+                  href="mailto:rotinadosono.app@gmail.com"
                   className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  contato@rotinadosono.com.br
+                  rotinadosono.app@gmail.com
                 </a>
               </li>
               <li>
