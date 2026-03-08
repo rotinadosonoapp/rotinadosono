@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Instagram, Heart, Loader2, Check } from "lucide-react";
+import { Mail, Instagram, Phone, Heart, Loader2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { saveLead } from "@/lib/supabase-leads";
@@ -105,11 +105,24 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://wa.me/5599981984287"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  (99) 98198-4287
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/_millenacaroline"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
                 >
                   <Instagram className="w-4 h-4" />
-                  @rotinadosono
+                  @_millenacaroline
                 </a>
               </li>
             </ul>
