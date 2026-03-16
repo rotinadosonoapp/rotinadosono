@@ -1,11 +1,5 @@
-import { Award, Users, BookOpen } from "lucide-react";
+import { Award } from "lucide-react";
 import { landingImages } from "@/lib/images";
-
-const stats = [
-  { icon: Users, value: "500+", label: "Famílias atendidas" },
-  { icon: Award, value: "5+", label: "Anos de experiência" },
-  { icon: BookOpen, value: "100%", label: "Método próprio" },
-];
 
 const AboutSection = () => {
   return (
@@ -65,21 +59,6 @@ const AboutSection = () => {
                 porque sei o quanto a privação de sono afeta a maternidade 
                 e toda a dinâmica familiar.
               </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-10 h-10 mx-auto mb-2 bg-coral-light rounded-lg flex items-center justify-center">
-                    <stat.icon className="w-5 h-5 text-coral" />
-                  </div>
-                  <p className="text-2xl font-display font-bold text-foreground">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
