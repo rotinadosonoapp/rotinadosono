@@ -12,7 +12,6 @@ const plans = [
     features: [
       "Guia Completo em PDF",
       "Acesso vitalício",
-      "1 primeiro contato",
     ],
     cta: "Quero Começar",
     popular: false,
