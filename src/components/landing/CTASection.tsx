@@ -1,16 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { landingImages } from "@/lib/images";
-import { HOTMART_URL } from "@/lib/config";
-
 const CTASection = () => {
   const goToComprar = () => {
-    if (HOTMART_URL) {
-      window.open(HOTMART_URL, "_blank", "noopener,noreferrer");
-    } else {
-      const el = document.getElementById("comprar");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById("comprar");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToSection = (id: string) => {

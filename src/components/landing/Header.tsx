@@ -3,19 +3,14 @@ import { Menu, X, User, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
-import { HOTMART_URL } from "@/lib/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated, isAdmin } = useAuth();
 
   const goToComprar = () => {
-    if (HOTMART_URL) {
-      window.open(HOTMART_URL, "_blank", "noopener,noreferrer");
-    } else {
-      const el = document.getElementById("comprar");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById("comprar");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 

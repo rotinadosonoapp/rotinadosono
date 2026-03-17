@@ -1,16 +1,10 @@
 import { Moon, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-baby-sleeping.jpg";
-import { HOTMART_URL } from "@/lib/config";
-
 const HeroSection = () => {
   const goToComprar = () => {
-    if (HOTMART_URL) {
-      window.open(HOTMART_URL, "_blank", "noopener,noreferrer");
-    } else {
-      const el = document.getElementById("comprar");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById("comprar");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToSection = (id: string) => {
