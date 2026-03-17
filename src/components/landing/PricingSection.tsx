@@ -1,6 +1,7 @@
 import { Check, Star, ArrowRight, CreditCard, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { landingImages } from "@/lib/images";
+import { HOTMART_URL, HOTMART_URL_COMPLETO } from "@/lib/config";
 
 const plans = [
   {
@@ -15,6 +16,7 @@ const plans = [
     ],
     cta: "Quero Começar",
     popular: false,
+    hotmartUrl: HOTMART_URL,
   },
   {
     name: "Completo",
@@ -32,6 +34,7 @@ const plans = [
     ],
     cta: "Quero Acompanhamento",
     popular: true,
+    hotmartUrl: HOTMART_URL_COMPLETO,
   },
 ];
 
@@ -125,6 +128,12 @@ const PricingSection = () => {
                 variant={plan.popular ? "hero" : "outline"}
                 size="xl"
                 className="w-full group"
+                onClick={() => {
+                  const url = plan.hotmartUrl;
+                  if (url) {
+                    window.open(url, "_blank", "noopener,noreferrer");
+                  }
+                }}
               >
                 {plan.cta}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

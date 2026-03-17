@@ -3,10 +3,21 @@ import { Menu, X, User, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { HOTMART_URL } from "@/lib/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated, isAdmin } = useAuth();
+
+  const goToComprar = () => {
+    if (HOTMART_URL) {
+      window.open(HOTMART_URL, "_blank", "noopener,noreferrer");
+    } else {
+      const el = document.getElementById("comprar");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -59,11 +70,11 @@ const Header = () => {
 
           {/* Portal + CTA */}
           <div className="hidden md:flex items-center gap-3">
-            {(!isAuthenticated || isAdmin) && (
-              <Link to={isAuthenticated && isAdmin ? "/admin" : "/login"}>
+            {isAuthenticated && isAdmin && (
+              <Link to="/admin">
                 <Button variant="outline" size="default" className="gap-2">
                   <User className="w-4 h-4" />
-                  {isAdmin ? "Admin" : "Entrar no Portal"}
+                  Admin
                 </Button>
               </Link>
             )}
@@ -71,7 +82,7 @@ const Header = () => {
               variant="hero"
               size="lg"
               className="px-6 py-6 text-base"
-              onClick={() => scrollToSection("comprar")}
+              onClick={goToComprar}
             >
               Quero Começar
             </Button>
@@ -128,11 +139,11 @@ const Header = () => {
               >
                 FAQ
               </button>
-              {(!isAuthenticated || isAdmin) && (
-                <Link to={isAuthenticated && isAdmin ? "/admin" : "/login"} onClick={() => setIsMenuOpen(false)}>
+              {isAuthenticated && isAdmin && (
+                <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="outline" size="lg" className="w-full mt-2 gap-2">
                     <User className="w-4 h-4" />
-                    {isAdmin ? "Admin" : "Entrar no Portal"}
+                    Admin
                   </Button>
                 </Link>
               )}
@@ -152,7 +163,7 @@ const Header = () => {
                 variant="hero"
                 size="lg"
                 className="mt-2 w-full text-base py-6"
-                onClick={() => scrollToSection("comprar")}
+                onClick={goToComprar}
               >
                 Quero Começar
               </Button>

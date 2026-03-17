@@ -1,8 +1,18 @@
 import { Moon, Star, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-baby-sleeping.jpg";
+import { HOTMART_URL } from "@/lib/config";
 
 const HeroSection = () => {
+  const goToComprar = () => {
+    if (HOTMART_URL) {
+      window.open(HOTMART_URL, "_blank", "noopener,noreferrer");
+    } else {
+      const el = document.getElementById("comprar");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -62,7 +72,7 @@ const HeroSection = () => {
               <Button
                 variant="hero"
                 size="xl"
-                onClick={() => scrollToSection("comprar")}
+                onClick={goToComprar}
                 className="group"
               >
                 Quero Noites Tranquilas
