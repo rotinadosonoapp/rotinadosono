@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Mariana S.",
     role: "Mãe do Pedro, 8 meses",
-    date: "Janeiro 2026",
+    date: "5 de jan. 2026",
     content:
       "Em 10 dias meu filho já estava dormindo das 19h às 6h da manhã! Eu não acreditava que era possível. O método é gentil e realmente funciona.",
     stars: 5,
@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Juliana M.",
     role: "Mãe da Clara, 2 anos",
-    date: "Fevereiro 2026",
+    date: "10 de jan. 2026",
     content:
       "Minha filha só dormia na cama comigo. Hoje ela adora o quartinho dela e dorme a noite toda. Voltei a ter vida! Recomendo demais.",
     stars: 5,
@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: "Amanda R.",
     role: "Mãe do Lucas, 4 meses",
-    date: "Março 2026",
+    date: "15 de jan. 2026",
     content:
       "Estava desesperada, acordava a cada 2 horas. Com a rotina do sono, em 2 semanas ele passou a fazer apenas 1 mamada noturna. Milagre!",
     stars: 5,
@@ -29,7 +29,7 @@ const testimonials = [
   {
     name: "Patrícia L.",
     role: "Mãe da Sofia, 1 ano",
-    date: "Abril 2026",
+    date: "12 de fev. 2026",
     content:
       "O melhor investimento que fiz na maternidade. O material é super didático e a assessoria foi essencial para o meu caso específico.",
     stars: 5,
@@ -37,7 +37,7 @@ const testimonials = [
   {
     name: "Fernanda C.",
     role: "Mãe do Theo, 6 meses",
-    date: "Maio 2026",
+    date: "18 de fev. 2026",
     content:
       "Tinha medo de fazer algum método, mas esse é realmente gentil. Meu filho aprendeu a dormir respeitando o tempo dele.",
     stars: 5,
@@ -45,7 +45,7 @@ const testimonials = [
   {
     name: "Carla B.",
     role: "Mãe do Miguel, 3 anos",
-    date: "Junho 2026",
+    date: "5 de mar. 2026",
     content:
       "Achei que era tarde demais para mudar, mas conseguimos! Miguel agora dorme às 20h e não acorda mais de madrugada.",
     stars: 5,
