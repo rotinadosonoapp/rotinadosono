@@ -39,9 +39,9 @@ const plans = [
 
 const PricingSection = () => {
   return (
-    <section id="comprar" className="py-20 md:py-28 gradient-warm">
+    <section id="comprar" className="pt-10 md:pt-12 pb-20 md:pb-28 gradient-warm">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-8">
+        <div className="max-w-3xl mx-auto text-center mb-6">
           <span className="inline-block text-coral font-medium mb-2">
             Invista no descanso da sua família
           </span>

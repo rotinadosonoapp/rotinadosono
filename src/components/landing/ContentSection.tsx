@@ -56,7 +56,7 @@ const ContentSection = () => {
   };
 
   return (
-    <section id="conteudo" className="py-20 md:py-28 bg-background">
+    <section id="conteudo" className="pt-20 md:pt-28 pb-10 md:pb-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block text-coral font-medium mb-4">
@@ -136,7 +136,7 @@ const ContentSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <Button
             variant="hero"
             size="xl"
