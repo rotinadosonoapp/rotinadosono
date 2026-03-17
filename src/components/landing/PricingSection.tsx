@@ -1,6 +1,5 @@
 import { Check, Star, ArrowRight, CreditCard, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { landingImages } from "@/lib/images";
 import { HOTMART_URL, HOTMART_URL_COMPLETO } from "@/lib/config";
 
 const plans = [
@@ -42,29 +41,17 @@ const PricingSection = () => {
   return (
     <section id="comprar" className="py-20 md:py-28 gradient-warm">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block text-coral font-medium mb-4">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <span className="inline-block text-coral font-medium mb-2">
             Invista no descanso da sua família
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-2">
             Escolha o plano ideal para{" "}
             <span className="text-coral">sua família</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-6">
             Pagamento seguro. Acesso imediato.
           </p>
-        </div>
-
-        {/* Imagem ilustrativa */}
-        <div className="flex justify-center mb-12">
-          <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-lg border-2 border-coral/10">
-            <img
-              src={landingImages.babySleepingBlanket}
-              alt="Invista no descanso da sua família"
-              className="w-full h-44 object-cover"
-              loading="lazy"
-            />
-          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
