@@ -9,7 +9,7 @@ const plans = [
     description: "Tudo que você precisa para começar",
     price: "200",
     originalPrice: "247",
-    maxInstallments: 4,
+    maxInstallments: 5,
     features: [
       "Guia Completo em PDF",
       "Acesso vitalício",
@@ -23,7 +23,7 @@ const plans = [
     description: "Inclui acompanhamento personalizado",
     price: "400",
     originalPrice: "497",
-    maxInstallments: 6,
+    maxInstallments: 5,
     features: [
       "Tudo do plano Essencial",
       "Apresentação visual (Power Point)",
