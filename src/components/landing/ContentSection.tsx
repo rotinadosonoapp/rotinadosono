@@ -44,7 +44,7 @@ const contentItems: ContentItem[] = [
   },
   {
     icon: MessageCircle,
-    title: "Assessoria personalizada",
+    title: "Consultoria Personalizada",
     description:
       "Quando o caso pede olhar de especialista: análise do seu contexto, plano sob medida e suporte na implementação.",
     highlights: [
