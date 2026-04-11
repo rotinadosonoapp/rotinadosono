@@ -28,5 +28,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Dados locais / comerciais (não versionar)
+DADOS.txt
+*HOTMART*.txt
+
 
 

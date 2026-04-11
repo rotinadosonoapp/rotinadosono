@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "O que acontece se eu precisar de ajuda extra?",
     answer:
-      "No plano Essencial, você tem suporte por e-mail. No plano Completo, você conta com assessoria individualizada por 30 dias via WhatsApp, onde analisamos seu caso específico e fazemos ajustes personalizados.",
+      "No Plano Essencial, você tem suporte por e-mail. No Plano Completo – Consultoria Online, você tem um mês de ajuste estratégico da rotina, com 4 mentorias online, análise de progresso, plano de ação rápido e acompanhamento personalizado.",
   },
   {
     question: "Posso parcelar o pagamento?",

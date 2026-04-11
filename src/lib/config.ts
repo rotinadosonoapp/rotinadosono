@@ -7,12 +7,22 @@
  * 3. Copie o "Link de vendas" (ex: https://pay.hotmart.com/XXXXXXXXX)
  *
  * Defina no .env (ou na Vercel > Settings > Environment Variables):
- *   VITE_HOTMART_URL = link do produto Essencial (R$ 200)
- *   VITE_HOTMART_URL_COMPLETO = link do produto Completo (R$ 400)
- * Se não definir, usam os valores padrão abaixo.
+ *   VITE_HOTMART_URL = link do produto Essencial (R$ 219,90)
+ *   VITE_HOTMART_URL_COMPLETO = link do produto Completo (R$ 519,90)
+ *   VITE_HOTMART_URL_PREMIUM = link do Premium presencial (R$ 999,90) — opcional
+ *   VITE_HOTMART_URL_DOMICILIAR = link do Domiciliar (R$ 1.499,90) — opcional
+ * Se não definir Essencial/Completo, usam os valores padrão abaixo.
+ * Premium e Domiciliar: sem padrão; configure o .env quando tiver o link de vendas.
  */
 const ESSENCIAL_DEFAULT = "https://go.hotmart.com/E104882583R";
 const COMPLETO_DEFAULT = "https://go.hotmart.com/T1048828320";
 
 export const HOTMART_URL = import.meta.env.VITE_HOTMART_URL || ESSENCIAL_DEFAULT;
 export const HOTMART_URL_COMPLETO = import.meta.env.VITE_HOTMART_URL_COMPLETO || COMPLETO_DEFAULT;
+export const HOTMART_URL_PREMIUM =
+  (import.meta.env.VITE_HOTMART_URL_PREMIUM as string | undefined)?.trim() || "";
+export const HOTMART_URL_DOMICILIAR =
+  (import.meta.env.VITE_HOTMART_URL_DOMICILIAR as string | undefined)?.trim() || "";
+
+/** E-mail para contato quando o plano ainda não tem link de checkout (ex.: presencial). */
+export const SITE_CONTACT_EMAIL = "rotinadosono.app@gmail.com";
