@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   CircleCheck,
   Sparkles,
@@ -99,6 +100,11 @@ const plans: Plan[] = [
   },
 ];
 
+const defaultSelectedIndex = Math.max(
+  0,
+  plans.findIndex((p) => p.popular),
+);
+
 function openPlanCheckout(plan: Plan) {
   if (plan.hotmartUrl) {
     window.open(plan.hotmartUrl, "_blank", "noopener,noreferrer");
@@ -109,6 +115,8 @@ function openPlanCheckout(plan: Plan) {
 }
 
 const PricingSection = () => {
+  const [selectedIndex, setSelectedIndex] = useState(defaultSelectedIndex);
+
   return (
     <section
       id="comprar"
@@ -152,25 +160,40 @@ const PricingSection = () => {
         </div>
 
         {/* —— Grid de cards —— */}
-        <div className="mx-auto grid max-w-[1440px] gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:items-stretch xl:gap-6 xl:px-2">
+        <div
+          className="mx-auto grid max-w-[1440px] gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:items-stretch xl:gap-6 xl:px-2"
+          role="radiogroup"
+          aria-label="Escolha um plano"
+        >
           {plans.map((plan, index) => {
-            const isPopular = plan.popular;
+            const isSelected = index === selectedIndex;
 
             return (
               <article
                 key={plan.name}
+                role="radio"
+                aria-checked={isSelected}
+                tabIndex={isSelected ? 0 : -1}
+                onClick={() => setSelectedIndex(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setSelectedIndex(index);
+                  }
+                }}
                 className={cn(
-                  "group relative flex flex-col rounded-3xl border transition-all duration-300 ease-out",
+                  "group relative flex cursor-pointer flex-col rounded-3xl border transition-all duration-300 ease-out outline-none",
                   "bg-white/75 shadow-lg shadow-navy/[0.06] backdrop-blur-md",
                   "border-white/80 hover:-translate-y-1.5 hover:border-coral/25 hover:shadow-xl hover:shadow-navy/[0.08]",
                   "p-7 md:p-8",
-                  isPopular &&
+                  "focus-visible:ring-2 focus-visible:ring-coral/50 focus-visible:ring-offset-2",
+                  isSelected &&
                     "xl:z-20 xl:-my-3 xl:scale-[1.06] xl:border-coral/35 xl:shadow-2xl xl:shadow-coral/20 xl:ring-1 xl:ring-coral/20",
                 )}
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                {/* Badge Mais Popular */}
-                {isPopular && (
+                {/* Badge: recomendado ou seleção ativa */}
+                {isSelected && (
                   <div className="absolute -top-3 left-1/2 z-30 -translate-x-1/2">
                     <div
                       className={cn(
@@ -180,7 +203,7 @@ const PricingSection = () => {
                       )}
                     >
                       <Sparkles className="h-3.5 w-3.5" aria-hidden />
-                      Mais Popular
+                      {plan.popular ? "Mais Popular" : "Selecionado"}
                     </div>
                   </div>
                 )}
@@ -190,7 +213,7 @@ const PricingSection = () => {
                   <h3
                     className={cn(
                       "font-display text-lg font-bold leading-snug tracking-tight text-navy md:text-xl",
-                      isPopular && "md:text-[1.35rem]",
+                      isSelected && "md:text-[1.35rem]",
                     )}
                   >
                     {plan.name}
@@ -209,7 +232,7 @@ const PricingSection = () => {
                     <span
                       className={cn(
                         "font-display font-bold tabular-nums tracking-tight text-navy",
-                        isPopular
+                        isSelected
                           ? "text-4xl sm:text-5xl xl:text-[2.75rem]"
                           : "text-4xl sm:text-[2.35rem]",
                       )}
@@ -246,11 +269,15 @@ const PricingSection = () => {
                 {/* CTA */}
                 <button
                   type="button"
-                  onClick={() => openPlanCheckout(plan)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedIndex(index);
+                    openPlanCheckout(plan);
+                  }}
                   className={cn(
                     "group/btn mt-auto inline-flex w-full items-center justify-center gap-2 rounded-2xl py-4 pl-5 pr-4 font-body text-base font-semibold transition-all duration-300",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/40 focus-visible:ring-offset-2",
-                    isPopular
+                    isSelected
                       ? "bg-gradient-to-r from-[hsl(352,40%,36%)] via-coral to-[hsl(36,76%,46%)] text-white shadow-lg shadow-coral/25 hover:scale-[1.02] hover:shadow-xl hover:brightness-[1.04] active:scale-[0.99]"
                       : "border border-navy/12 bg-white/80 text-navy shadow-sm backdrop-blur-sm hover:scale-[1.01] hover:border-coral/30 hover:bg-white hover:shadow-md active:scale-[0.99]",
                   )}
