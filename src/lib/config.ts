@@ -16,8 +16,9 @@
  */
 const ESSENCIAL_DEFAULT = "https://go.hotmart.com/E104882583R";
 const COMPLETO_DEFAULT = "https://go.hotmart.com/T104882832O";
-const PREMIUM_DEFAULT = "https://go.hotmart.com/M105317541S";
-const DOMICILIAR_DEFAULT = "https://go.hotmart.com/W105317412A";
+/** Presencial clínica R$ 999,90 · Domiciliar R$ 1.499,90 — IDs alinhados aos preços na Hotmart */
+const PREMIUM_DEFAULT = "https://go.hotmart.com/W105317412A";
+const DOMICILIAR_DEFAULT = "https://go.hotmart.com/M105317541S";
 
 export const HOTMART_URL = import.meta.env.VITE_HOTMART_URL || ESSENCIAL_DEFAULT;
 export const HOTMART_URL_COMPLETO = import.meta.env.VITE_HOTMART_URL_COMPLETO || COMPLETO_DEFAULT;
